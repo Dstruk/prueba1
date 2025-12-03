@@ -1,11 +1,21 @@
-/* Estilos globales */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #4A90E2; /* Azul vibrante */
+    --secondary-color: #50E3C2; /* Verde azulado */
+    --dark-color: #2c3e50; /* Azul oscuro casi negro */
+    --light-color: #ecf0f1; /* Gris muy claro */
+    --text-color: #34495e; /* Gris oscuro */
+    --border-color: #dadce0; /* Borde suave */
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--light-color);
+    color: var(--text-color);
 }
 
 .container {
@@ -16,60 +26,112 @@ body {
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding-top: 30px;
+    background: var(--dark-color);
+    color: var(--light-color);
+    padding-top: 20px;
     min-height: 70px;
-    border-bottom: #77aaff 3px solid;
+    border-bottom: var(--primary-color) 3px solid;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header h1 {
     text-align: center;
     margin: 0;
+    font-weight: 600;
+    font-size: 2.2em;
+}
+
+/* Estilos para la navegación */
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header li {
+    display: inline;
+    padding: 0 15px;
+}
+
+header a {
+    color: var(--light-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: var(--secondary-color);
 }
 
 main {
-    padding: 20px;
+    padding: 30px;
     background: #fff;
     margin-top: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    background: #333;
-    color: #fff;
-    margin-top: 20px;
+    background: var(--dark-color);
+    color: var(--light-color);
+    margin-top: 30px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
 /* Estilos para formularios */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
 }
 
 .form-group input[type="text"],
 .form-group input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 button[type="submit"] {
-    background: #77aaff;
+    background: var(--primary-color);
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button[type="submit"]:hover {
-    background: #5588ee;
+    background: #3a7bd2; /* Un tono más oscuro del primary-color */
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
 }
