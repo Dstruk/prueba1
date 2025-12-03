@@ -135,3 +135,19 @@ button[type="submit"]:hover {
 button[type="submit"]:active {
     transform: translateY(0);
 }
+
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.back-to-home a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-to-home a:hover {
+    text-decoration: underline;
+}
