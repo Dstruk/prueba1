@@ -46,4 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Lógica para hacer las tarjetas de películas interactivas
+    const movieCards = document.querySelectorAll('.movie-card');
+
+    movieCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const titleElement = card.querySelector('h4');
+            const title = titleElement ? titleElement.textContent : 'Contenido Desconocido';
+            alert(`Has hecho clic en: ${title}`);
+            console.log('Clic en tarjeta:', title);
+            // Aquí podrías redirigir a una página de detalles o mostrar un modal
+        });
+    });
 });
