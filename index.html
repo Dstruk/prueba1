@@ -16,12 +16,26 @@
             <h1>El Tío Pelis</h1>
             <nav>
                 <ul>
-                    <li><a href="login.html">Iniciar Sesión</a></li>
+                    <li><a href="#" id="openAuthModal">Iniciar Sesión</a></li>
                     <li><a href="register.html">Registrarse</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Modal de Autenticación -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Acceso de Usuario</h2>
+            <p>Por favor, elige una opción:</p>
+            <div class="modal-buttons">
+                <a href="login.html" class="btn btn-primary">Iniciar Sesión</a>
+                <a href="register.html" class="btn btn-secondary">Registrarse</a>
+            </div>
+        </div>
+    </div>
+
     <main class="container">
         <section class="hero">
             <h2>Bienvenido a El Tío Pelis</h2>

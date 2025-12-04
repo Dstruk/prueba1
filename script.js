@@ -75,6 +75,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Lógica para el modal de autenticación
+    const authModal = document.getElementById('authModal');
+    const openAuthModalBtn = document.getElementById('openAuthModal');
+    const closeButton = document.querySelector('.close-button');
+
+    if (authModal && openAuthModalBtn && closeButton) {
+        openAuthModalBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevenir el salto del enlace
+            authModal.style.display = 'flex'; // Mostrar el modal
+        });
+
+        closeButton.addEventListener('click', () => {
+            authModal.style.display = 'none'; // Ocultar el modal
+        });
+
+        // Cerrar el modal si se hace clic fuera de su contenido
+        window.addEventListener('click', (event) => {
+            if (event.target === authModal) {
+                authModal.style.display = 'none';
+            }
+        });
+    }
+
     // Lógica para el formulario de registro
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
