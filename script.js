@@ -74,4 +74,46 @@ document.addEventListener('DOMContentLoaded', () => {
             // Aquí podrías redirigir a una página de detalles o mostrar un modal
         });
     });
+
+    // Lógica para el formulario de registro
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const username = registerForm.username.value;
+            const password = registerForm.password.value;
+            const confirmPassword = registerForm.confirmPassword.value;
+
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(`Registro exitoso: ${data.message}`);
+                    console.log('Usuario registrado:', data.username);
+                    // Redirigir al usuario a la página de login
+                    window.location.href = 'login.html';
+                } else {
+                    alert(`Error en el registro: ${data.message}`);
+                    console.log('Intento de registro fallido:', data.message);
+                }
+            } catch (error) {
+                console.error('Error de red o del servidor:', error);
+                alert('Error al conectar con el servidor. Inténtalo de nuevo más tarde.');
+            }
+        });
+    }
 });
