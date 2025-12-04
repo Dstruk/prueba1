@@ -9,6 +9,9 @@ import datetime
 app = Flask(__name__)
 CORS(app) # Habilitar CORS para permitir solicitudes desde tu frontend
 
+# Asignar la aplicación Flask a una variable llamada 'application' para Gunicorn
+application = app
+
 # --- Configuración de Flask --- 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'una_clave_secreta_muy_segura_y_larga' # Usar una clave secreta fuerte
 
@@ -77,17 +80,3 @@ def register():
 
     print(f"Usuario registrado en DB: {username}")
     return jsonify({"message": "Registro exitoso", "username": username}), 201 # 201 Created
-
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all() # Crea las tablas de la DB si no existen
-        # Opcional: Añadir usuarios iniciales si la DB está vacía
-        if not User.query.filter_by(username='testuser').first():
-            test_user = User(username='testuser', password_hash=generate_password_hash('testpass'))
-            admin_user = User(username='admin', password_hash=generate_password_hash('adminpass'))
-            db.session.add(test_user)
-            db.session.add(admin_user)
-            db.session.commit()
-            print("Usuarios iniciales 'testuser' y 'admin' creados en la DB.")
-
-    app.run(debug=True, port=5000)
