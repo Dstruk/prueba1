@@ -49,7 +49,7 @@ def login():
         token = jwt.encode({
             'user_id': user.id,
             'username': user.username,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1) # Token válido por 1 hora
+            'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1) # Token válido por 1 hora
         }, app.config['SECRET_KEY'], algorithm='HS256')
         
         return jsonify({"message": "Inicio de sesión exitoso", "token": token}), 200
