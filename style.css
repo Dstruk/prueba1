@@ -34,11 +34,58 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 header h1 {
-    text-align: center;
+    text-align: left;
+    flex-grow: 1;
     margin: 0;
     font-weight: 600;
     font-size: 2.2em;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    margin-right: 20px; /* Espacio entre la barra de búsqueda y el título */
+}
+
+.search-bar input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    margin-right: 10px;
+    width: 200px; /* Ancho por defecto del input */
+    transition: width 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+    width: 250px; /* Expandir al enfocar */
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #46c3a1; /* Tono más oscuro del secondary-color */
 }
 
 /* Estilos para la navegación */

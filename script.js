@@ -3,8 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('La página ha cargado completamente.');
 
+    // Lógica para el formulario de inicio de sesión
     const loginForm = document.getElementById('loginForm');
-
     if (loginForm) {
         loginForm.addEventListener('submit', (event) => {
             event.preventDefault(); // Prevenir el envío por defecto del formulario
@@ -19,6 +19,30 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 alert('Nombre de usuario o contraseña incorrectos.');
                 console.log('Intento de inicio de sesión fallido para:', username);
+            }
+        });
+    }
+
+    // Lógica para la barra de búsqueda
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+
+    if (searchInput && searchButton) {
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                console.log('Buscando:', searchTerm);
+                alert(`Buscando: ${searchTerm}`);
+                // Aquí iría la lógica real de búsqueda, por ejemplo, filtrar películas/series
+            } else {
+                alert('Por favor, introduce un término de búsqueda.');
+            }
+        });
+
+        // Opcional: Permitir búsqueda al presionar Enter en el input
+        searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                searchButton.click();
             }
         });
     }
