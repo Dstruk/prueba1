@@ -1,0 +1,39 @@
+# Archivos y directorios a ignorar por Git
+
+# Entornos virtuales de Python
+venv/
+*.venv/
+
+# Archivos de base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de caché y compilación
+__pycache__/
+*.pyc
+*.log
+
+# Archivos específicos de sistemas operativos
+.DS_Store
+thumbs.db
+
+# Archivos de entorno
+.env
+.env.*
+
+# Archivos específicos de IDEs (ej. VS Code)
+.vscode/
+
+# Archivos de PyInstaller
+*.spec
+build/
+dist/
+
+# Archivos de Python generados
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Carpetas de datos o logs generados por la aplicación
+/backend/database.db
