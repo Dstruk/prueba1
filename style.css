@@ -36,40 +36,52 @@ header {
 
 header .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Cambiar a columna para que la barra de búsqueda y el título estén en líneas separadas */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
     flex-wrap: wrap;
 }
 
 header h1 {
-    text-align: left;
-    flex-grow: 1;
-    margin: 0;
-    font-weight: 600;
-    font-size: 2.2em;
+    text-align: center; /* Centrar el título */
+    flex-grow: 0; /* No permitir que crezca */
+    margin: 20px 0 10px 0; /* Más espacio arriba y abajo del título */
+    font-weight: 700;
+    font-size: 2.8em;
+    width: 100%; /* Ocupar todo el ancho para centrarlo */
 }
 
 /* Estilos para la barra de búsqueda */
 .search-bar {
     display: flex;
     align-items: center;
+    justify-content: center; /* Centrar los elementos dentro de la barra */
+    width: 100%; /* Ocupar todo el ancho disponible para el centrado */
+    max-width: 600px; /* Limitar el ancho máximo para que no sea excesivamente grande */
     flex-grow: 0;
-    margin-right: 20px; /* Espacio entre la barra de búsqueda y el título */
+    margin: 20px 0; /* Espacio arriba y abajo */
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
 }
 
 .search-bar input[type="text"] {
-    padding: 8px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-size: 1em;
-    margin-right: 10px;
-    width: 200px; /* Ancho por defecto del input */
-    transition: width 0.3s ease;
+    padding: 12px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px; /* Bordes más redondeados */
+    font-size: 1.1em; /* Texto más grande */
+    margin-right: 15px; /* Más espacio entre el input y el botón */
+    width: calc(100% - 150px); /* Ajustar ancho para el botón */
+    max-width: 400px;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-bar input[type="text"]:focus {
-    width: 250px; /* Expandir al enfocar */
+    width: calc(100% - 150px); /* Mantener el ancho al enfocar */
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Sombra de enfoque */
     outline: none;
 }
 
@@ -77,15 +89,17 @@ header h1 {
     background: var(--secondary-color);
     color: var(--dark-color);
     border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 12px 25px; /* Botón más grande */
+    border-radius: 8px; /* Bordes más redondeados */
     cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    font-weight: 700; /* Texto más negrita */
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-secondary:hover {
     background: #46c3a1; /* Tono más oscuro del secondary-color */
+    transform: translateY(-2px);
 }
 
 /* Estilos para la navegación */
