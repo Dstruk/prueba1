@@ -6,19 +6,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lógica para el formulario de inicio de sesión
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.addEventListener('submit', (event) => {
+        loginForm.addEventListener('submit', async (event) => { // Añadir 'async' aquí
             event.preventDefault(); // Prevenir el envío por defecto del formulario
 
             const username = loginForm.username.value;
             const password = loginForm.password.value;
 
-            if (username === 'usuario' && password === 'contraseña') {
-                alert('Inicio de sesión exitoso!');
-                console.log('Usuario autenticado:', username);
-                // Aquí normalmente redirigiríamos al usuario a una página protegida
-            } else {
-                alert('Nombre de usuario o contraseña incorrectos.');
-                console.log('Intento de inicio de sesión fallido para:', username);
+            try {
+                const response = await fetch('http://localhost:5000/api/login', { // Usar fetch para el backend
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(`Inicio de sesión exitoso: ${data.message}`);
+                    console.log('Usuario autenticado:', data.username);
+                    // Aquí normalmente redirigiríamos al usuario a una página protegida
+                } else {
+                    alert(`Error al iniciar sesión: ${data.message}`);
+                    console.log('Intento de inicio de sesión fallido:', data.message);
+                }
+            } catch (error) {
+                console.error('Error de red o del servidor:', error);
+                alert('Error al conectar con el servidor. Inténtalo de nuevo más tarde.');
             }
         });
     }
