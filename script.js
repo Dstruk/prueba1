@@ -104,11 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const authModal = document.getElementById('authModal');
     const closeButton = document.querySelector('.close-button');
 
+    // Si no hay token JWT al cargar la página, mostrar el modal automáticamente
+    if (!localStorage.getItem('jwt_token') && authModal) {
+        authModal.style.display = 'flex';
+    }
+
     if (authModal && openAuthModalBtn && closeButton) {
-        openAuthModalBtn.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevenir el salto del enlace
-            authModal.style.display = 'flex'; // Mostrar el modal
-        });
+        // Eliminar el eventListener del botón si el modal se muestra automáticamente
+        // openAuthModalBtn.addEventListener('click', (event) => {
+        //     event.preventDefault(); // Prevenir el salto del enlace
+        //     authModal.style.display = 'flex'; // Mostrar el modal
+        // });
 
         closeButton.addEventListener('click', () => {
             authModal.style.display = 'none'; // Ocultar el modal

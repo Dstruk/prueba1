@@ -416,6 +416,11 @@ button[type="submit"]:active {
         width: 90%;
     }
 
+    header .container {
+        align-items: flex-start; /* Ajustar para que los ítems no se centren verticalmente de forma general */
+        padding-top: 20px; /* Asegurar padding superior */
+    }
+
     header h1 {
         font-size: 2.2em;
         margin-top: 15px;
@@ -448,20 +453,32 @@ button[type="submit"]:active {
     }
 
     header nav {
-        position: static; /* Volver a flujo normal */
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
+        position: absolute; /* Volver a posicionar absolutamente para la esquina */
+        top: 20px; /* Misma posición que en desktop */
+        left: 20px; /* Misma posición que en desktop */
+        width: auto; /* Ancho automático */
+        text-align: left; /* Alinear a la izquierda */
+        margin-top: 0; 
     }
 
     header ul {
-        display: flex;
-        justify-content: center;
+        justify-content: flex-start; /* Alinear a la izquierda */
         padding: 0;
     }
 
     header li {
-        padding: 0 10px;
+        padding: 0;
+        margin-right: 10px; /* Espacio entre los enlaces */
+    }
+
+    header li:last-child {
+        margin-right: 0;
+    }
+
+    header li a {
+        padding: 5px 10px; /* Un poco más de padding */
+        background: rgba(0,0,0,0.3); /* Asegurar el fondo sutil */
+        border-radius: 5px;
     }
 
     .hero h2 {
