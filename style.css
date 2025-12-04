@@ -405,3 +405,138 @@ button[type="submit"]:active {
     flex-basis: 45%; /* Para que los botones ocupen casi la mitad cada uno */
     text-align: center;
 }
+
+/* ======================= */
+/*      Media Queries      */
+/* ======================= */
+
+/* Para pantallas medianas (tabletas, ~768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .search-bar {
+        max-width: 90%;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .search-bar input[type="text"] {
+        width: 100%;
+        max-width: none;
+        margin-right: 0;
+        margin-bottom: 15px;
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .search-bar input[type="text"]:focus {
+        width: 100%;
+    }
+
+    .btn-secondary {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    header nav {
+        position: static; /* Volver a flujo normal */
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    header ul {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+
+    header li {
+        padding: 0 10px;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .movie-card img {
+        height: 200px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .modal-buttons .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .modal-buttons .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Para pantallas pequeñas (móviles, ~480px) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 0.9em;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Una sola columna para móviles */
+    }
+
+    .movie-card img {
+        height: 250px; /* Un poco más alto en columna única */
+    }
+
+    .form-group input {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    button[type="submit"] {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    header li a {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+}
