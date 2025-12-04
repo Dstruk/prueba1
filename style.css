@@ -35,17 +35,19 @@ header {
 }
 
 header .container {
+    position: relative; /* Permitir posicionamiento absoluto de elementos internos */
     display: flex;
     flex-direction: column; /* Cambiar a columna para que la barra de búsqueda y el título estén en líneas separadas */
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
     flex-wrap: wrap;
+    padding-bottom: 20px; /* Espacio extra abajo del header */
 }
 
 header h1 {
     text-align: center; /* Centrar el título */
     flex-grow: 0; /* No permitir que crezca */
-    margin: 20px 0 10px 0; /* Más espacio arriba y abajo del título */
+    margin: 0 0 20px 0; /* Más espacio abajo del título */
     font-weight: 700;
     font-size: 2.8em;
     width: 100%; /* Ocupar todo el ancho para centrarlo */
@@ -59,7 +61,7 @@ header h1 {
     width: 100%; /* Ocupar todo el ancho disponible para el centrado */
     max-width: 600px; /* Limitar el ancho máximo para que no sea excesivamente grande */
     flex-grow: 0;
-    margin: 20px 0; /* Espacio arriba y abajo */
+    margin: 0; /* Eliminar margen para un mejor control */
     padding: 10px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -104,8 +106,11 @@ header h1 {
 
 /* Estilos para la navegación */
 header nav {
-    float: right;
-    margin-top: 10px;
+    position: absolute; /* Posicionar absolutamente */
+    top: 20px; /* Separación del top */
+    left: 20px; /* Separación de la izquierda */
+    float: none; /* Eliminar float */
+    margin-top: 0; /* Eliminar margen */
 }
 
 header ul {
@@ -116,7 +121,7 @@ header ul {
 
 header li {
     display: inline;
-    padding: 0 15px;
+    padding: 0;
 }
 
 header a {
@@ -125,10 +130,14 @@ header a {
     text-transform: uppercase;
     font-size: 16px;
     transition: color 0.3s ease;
+    padding: 5px 10px; /* Añadir padding al enlace */
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2); /* Fondo sutil */
 }
 
 header a:hover {
     color: var(--secondary-color);
+    background: rgba(0,0,0,0.3);
 }
 
 main {
